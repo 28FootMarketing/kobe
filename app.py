@@ -4,7 +4,6 @@ import streamlit as st
 st.set_page_config(page_title="Kobe Bot – Recruiting Education Coach", page_icon="📘", layout="centered")
 
 # Branding and Header
-st.image("Upgraded logo 3-13-24 black letters sports on road.png", width=200)
 st.markdown("### *One Message. One Module. One Move at a Time.*")
 
 # Custom CSS for button styling
