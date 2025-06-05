@@ -1,66 +1,47 @@
 import streamlit as st
 
 # Page configuration
-st.set_page_config(page_title="Kobe Bot – Recruiting Education Coach", page_icon="📘", layout="centered")
+st.set_page_config(page_title="Kobe Bot - Recruiting Education Coach", page_icon="📘", layout="centered")
 
-# Branding and Header
-st.markdown("### *One Message. One Module. One Move at a Time.*")
-
-# Custom CSS for button styling
-st.markdown("""
-<style>
-div.stButton > button:first-child {
-    background-color: #4B0082;
-    color: white;
-    font-weight: bold;
-    border-radius: 12px;
-    height: 3em;
-    width: 100%;
-}
-</style>
-""", unsafe_allow_html=True)
-
-# Title and Introduction
+# Header Section
 st.title("📘 Kobe Bot: The Mamba Mentor")
 st.subheader("Your Recruiting Education Coach")
 
 st.markdown("**Style of Play:** Relentless, disciplined, and detail-oriented.")
-
 st.markdown("""
-Kobe guides you through weekly training tips, email lessons, and challenge-based learning.  
-This bot delivers key content from your **42-Day Challenge** or **60-Day Recruiting Plan**, always centered on **mental toughness** and **strategic preparation**.
+Kobe Bot guides student-athletes through weekly training, email lessons, and challenge-based learning.  
+Focused on mental toughness and precision, this bot sends content from the 42-Day or 60-Day Recruiting Plan to build confidence and execution.
 
 > “The Mamba Bot sharpens your approach—one message, one module, one move at a time.”
 """)
 
-# Step 1: Select a Training Program
+# Step 1: Choose a Training Program
 st.header("Step 1: Choose Your Training Program")
-program = st.radio("Which plan would you like to start?", [
+program = st.radio("Which program would you like to follow?", [
     "📅 42-Day Recruiting Challenge",
     "🗓️ 60-Day Recruiting Plan"
 ])
 
-# Step 2: Today's Module
-st.header("Step 2: Today's Lesson from Kobe")
-
+# Step 2: Lesson of the Day
+st.header("Step 2: Today’s Focus Lesson")
 if program == "📅 42-Day Recruiting Challenge":
-    st.info("Day 1: Write your recruiting mission statement. Define your ‘Why’ before sending your ‘What’ to coaches.")
-    st.caption("Tip: The best messages come from clarity, not copy-paste.")
+    st.info("Day 1: Define your recruiting identity. What position, strengths, and mindset do you want coaches to know?")
+    st.caption("Tip: Your message to coaches should reflect clarity and confidence.")
 elif program == "🗓️ 60-Day Recruiting Plan":
-    st.info("Day 1: Audit your highlight video. Is your best play first? Trim down to under 3 minutes.")
-    st.caption("Tip: Coaches have short attention spans. Lead with impact.")
+    st.info("Day 1: Review your highlight video. Open with your best play. Keep it under 3 minutes.")
+    st.caption("Tip: Coaches make snap decisions—show them who you are, fast.")
 
-# Step 3: Accountability Contact Info
-st.header("Step 3: Stay on Track")
-contact_method = st.selectbox("How should we send your daily lessons?", ["Email", "SMS", "Just on this App"])
-contact_info = st.text_input(f"Enter your {contact_method}:")
+# Step 3: Contact Method
+st.header("Step 3: Delivery Preference")
+delivery = st.selectbox("Where should Kobe send your daily lessons?", ["Email", "SMS", "Just in this App"])
+contact = st.text_input(f"Enter your {delivery} contact:")
 
-# Step 4: Daily Commitment
-if st.button("Lock In Today’s Lesson"):
-    st.success("✅ Your training path has been updated.")
+# Summary Output
+if st.button("Lock In"):
+    st.success("✅ You’re enrolled and locked in.")
     st.markdown(f"""
-    **Plan:** {program}  
-    **Delivery Method:** {contact_method} → {contact_info}
+    **Selected Plan:** {program}  
+    **Delivery Method:** {delivery} → {contact if contact else 'No contact provided'}
     """)
-    st.info("Kobe says: Stay consistent. Keep learning. Let your work speak.")
+    st.info("Kobe says: Do not skip steps. Stay disciplined. Every day is a rep.")
     st.balloons()
