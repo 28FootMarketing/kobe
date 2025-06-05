@@ -1,18 +1,13 @@
 import streamlit as st
 
-# Page setup
-st.set_page_config(page_title="Kobe Bot - Recruiting Education Coach", page_icon="📘", layout="centered")
-
-# Branding and Headerimport streamlit as st
-
-# Page setup
-st.set_page_config(page_title="Kobe Bot - Recruiting Education Coach", page_icon="📘", layout="centered")
+# Page configuration
+st.set_page_config(page_title="Kobe Bot – Recruiting Education Coach", page_icon="📘", layout="centered")
 
 # Branding and Header
 st.image("Upgraded logo 3-13-24 black letters sports on road.png", width=200)
-st.markdown("### *Outwork the Noise. Learn the Game. Lead the Process.*")
+st.markdown("### *One Message. One Module. One Move at a Time.*")
 
-# Custom styling for buttons
+# Custom CSS for button styling
 st.markdown("""
 <style>
 div.stButton > button:first-child {
@@ -26,137 +21,47 @@ div.stButton > button:first-child {
 </style>
 """, unsafe_allow_html=True)
 
-# App Title
+# Title and Introduction
 st.title("📘 Kobe Bot: The Mamba Mentor")
 st.subheader("Your Recruiting Education Coach")
 
-st.markdown("**Style of Play:** Intense, driven, and relentless.")
+st.markdown("**Style of Play:** Relentless, disciplined, and detail-oriented.")
 
 st.markdown("""
-Kobe Bot helps you sharpen your recruiting IQ with structured training paths and real-world education.  
-This is where you master the process—not just go through it.
+Kobe guides you through weekly training tips, email lessons, and challenge-based learning.  
+This bot delivers key content from your **42-Day Challenge** or **60-Day Recruiting Plan**, always centered on **mental toughness** and **strategic preparation**.
+
+> “The Mamba Bot sharpens your approach—one message, one module, one move at a time.”
 """)
 
-# Step 1: Struggle Identification
-st.header("Step 1: What Do You Struggle With Most?")
-struggle = st.selectbox("Pick your biggest recruiting challenge:", [
-    "I don't know how to reach out to coaches",
-    "I’m unsure what to say in emails",
-    "I don’t know what to post on social media",
-    "I haven’t built my highlight video yet",
-    "I don’t know what schools fit me"
-])
-notes = st.text_area("Add any other concerns or questions")
-
-# Step 2: Choose a Learning Track
-st.header("Step 2: Choose a Learning Track")
-learning_path = st.radio("What would you like to learn about first?", [
-    "🏀 Recruiting Timeline Overview",
-    "✉️ Coach Communication Tips",
-    "🎞️ Building a Highlight Video",
-    "📅 42-Day Recruiting Challenge"
+# Step 1: Select a Training Program
+st.header("Step 1: Choose Your Training Program")
+program = st.radio("Which plan would you like to start?", [
+    "📅 42-Day Recruiting Challenge",
+    "🗓️ 60-Day Recruiting Plan"
 ])
 
-# Step 3: Tip of the Day
-st.header("Step 3: Today's Tip from Kobe")
-if learning_path == "🏀 Recruiting Timeline Overview":
-    st.info("Start early. Coaches begin tracking athletes as early as 9th grade. Your timeline is your edge—track progress monthly.")
-elif learning_path == "✉️ Coach Communication Tips":
-    st.info("Use the 3C method: Clear, Concise, and Confident. Personalize every message to the coach.")
-elif learning_path == "🎞️ Building a Highlight Video":
-    st.info("Your best plays should be first. Keep it under 3 minutes. Show athleticism, IQ, and hustle plays.")
-elif learning_path == "📅 42-Day Recruiting Challenge":
-    st.info("Consistency beats intensity. Show up daily. Complete 1 task a day to stay recruitable and visible.")
+# Step 2: Today's Module
+st.header("Step 2: Today's Lesson from Kobe")
 
-# Step 4: Delivery Method
-st.header("Step 4: How Should We Deliver Your Lessons?")
-contact_method = st.selectbox("Choose where you’d like to receive daily tips:", ["Email", "Text Message (SMS)", "Just On This App"])
+if program == "📅 42-Day Recruiting Challenge":
+    st.info("Day 1: Write your recruiting mission statement. Define your ‘Why’ before sending your ‘What’ to coaches.")
+    st.caption("Tip: The best messages come from clarity, not copy-paste.")
+elif program == "🗓️ 60-Day Recruiting Plan":
+    st.info("Day 1: Audit your highlight video. Is your best play first? Trim down to under 3 minutes.")
+    st.caption("Tip: Coaches have short attention spans. Lead with impact.")
+
+# Step 3: Accountability Contact Info
+st.header("Step 3: Stay on Track")
+contact_method = st.selectbox("How should we send your daily lessons?", ["Email", "SMS", "Just on this App"])
 contact_info = st.text_input(f"Enter your {contact_method}:")
 
-# Summary
-if st.button("Submit and Start Training"):
-    st.success("📬 Training Path Submitted")
+# Step 4: Daily Commitment
+if st.button("Lock In Today’s Lesson"):
+    st.success("✅ Your training path has been updated.")
     st.markdown(f"""
-    **Struggle Area:** {struggle}  
-    **Extra Notes:** {notes}  
-    **Chosen Path:** {learning_path}  
-    **Delivery:** {contact_method} → {contact_info}
+    **Plan:** {program}  
+    **Delivery Method:** {contact_method} → {contact_info}
     """)
-    st.info("Kobe Bot says: The work starts now. Let’s get it.")
-    st.balloons()
-
-st.image("Upgraded logo 3-13-24 black letters sports on road.png", width=200)
-st.markdown("### *Outwork the Noise. Learn the Game. Lead the Process.*")
-
-# Custom styling for buttons
-st.markdown("""
-<style>
-div.stButton > button:first-child {
-    background-color: #4B0082;
-    color: white;
-    font-weight: bold;
-    border-radius: 12px;
-    height: 3em;
-    width: 100%;
-}
-</style>
-""", unsafe_allow_html=True)
-
-# App Title
-st.title("📘 Kobe Bot: The Mamba Mentor")
-st.subheader("Your Recruiting Education Coach")
-
-st.markdown("**Style of Play:** Intense, driven, and relentless.")
-
-st.markdown("""
-Kobe Bot helps you sharpen your recruiting IQ with structured training paths and real-world education.  
-This is where you master the process—not just go through it.
-""")
-
-# Step 1: Struggle Identification
-st.header("Step 1: What Do You Struggle With Most?")
-struggle = st.selectbox("Pick your biggest recruiting challenge:", [
-    "I don't know how to reach out to coaches",
-    "I’m unsure what to say in emails",
-    "I don’t know what to post on social media",
-    "I haven’t built my highlight video yet",
-    "I don’t know what schools fit me"
-])
-notes = st.text_area("Add any other concerns or questions")
-
-# Step 2: Choose a Learning Track
-st.header("Step 2: Choose a Learning Track")
-learning_path = st.radio("What would you like to learn about first?", [
-    "🏀 Recruiting Timeline Overview",
-    "✉️ Coach Communication Tips",
-    "🎞️ Building a Highlight Video",
-    "📅 42-Day Recruiting Challenge"
-])
-
-# Step 3: Tip of the Day
-st.header("Step 3: Today's Tip from Kobe")
-if learning_path == "🏀 Recruiting Timeline Overview":
-    st.info("Start early. Coaches begin tracking athletes as early as 9th grade. Your timeline is your edge—track progress monthly.")
-elif learning_path == "✉️ Coach Communication Tips":
-    st.info("Use the 3C method: Clear, Concise, and Confident. Personalize every message to the coach.")
-elif learning_path == "🎞️ Building a Highlight Video":
-    st.info("Your best plays should be first. Keep it under 3 minutes. Show athleticism, IQ, and hustle plays.")
-elif learning_path == "📅 42-Day Recruiting Challenge":
-    st.info("Consistency beats intensity. Show up daily. Complete 1 task a day to stay recruitable and visible.")
-
-# Step 4: Delivery Method
-st.header("Step 4: How Should We Deliver Your Lessons?")
-contact_method = st.selectbox("Choose where you’d like to receive daily tips:", ["Email", "Text Message (SMS)", "Just On This App"])
-contact_info = st.text_input(f"Enter your {contact_method}:")
-
-# Summary
-if st.button("Submit and Start Training"):
-    st.success("📬 Training Path Submitted")
-    st.markdown(f"""
-    **Struggle Area:** {struggle}  
-    **Extra Notes:** {notes}  
-    **Chosen Path:** {learning_path}  
-    **Delivery:** {contact_method} → {contact_info}
-    """)
-    st.info("Kobe Bot says: The work starts now. Let’s get it.")
+    st.info("Kobe says: Stay consistent. Keep learning. Let your work speak.")
     st.balloons()
